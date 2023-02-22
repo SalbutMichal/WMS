@@ -17,8 +17,26 @@ require __DIR__.'/auth.php';
 Route::get('/', function () {
     return view('login');
 });
-
+Route::get('/test', function () {
+    dd(Route::getRoutes()->getPrefix('admin'));
+    return view('dashboard.dashboard');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::group([
+    'prefix' => 'dashboard',
+    'as' => 'dashboard.',
+    'middleware' => [
+        'auth',
+        'check.access',
+    ],
+], function () {
+    Route::group([
+        'prefix' => 'warehouse',
+        'as' => 'warehouse.',
+    ], function () {
+        Route::get('/', 'Dashboard\DashboardController@index')->name('index');
+    });
+});
