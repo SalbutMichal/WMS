@@ -18,7 +18,6 @@
                     </span>
                     <h1 class="logo-title">
                         <span>WMS</span>
-                        {{-- <span>warehouse management system</span> --}}
                     </h1>
                 </div>
             </div>
@@ -50,11 +49,11 @@
         <div class="app-body">
             <div class="app-body-navigation">
                 <nav class="navigation">
-                    <a href="#">
+                    <a class="{{ (Route::is('dashboard.index')) ? 'route_active' : '' }}" href="{{ route('dashboard.index') }}">
                         <i class="ph-browsers"></i>
                         <span>Dashboard</span>
                     </a>
-                    <a href="#">
+                    <a class="{{ (Route::is('dashboard.warehouse.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.warehouse.index') }}">
                         <i class="ph-check-square"></i>
                         <span>Magazyny</span>
                     </a>
@@ -66,15 +65,19 @@
                         <i class="ph-file-text"></i>
                         <span>Wydania magazynowe</span>
                     </a> --}}
-                    <a href="#">
+                    <a class="{{ (Route::is('dashboard.products.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.products.index') }}">
                         <i class="ph-globe"></i>
                         <span>Produkty</span>
                     </a>
-                    <a href="#">
+                    <a class="{{ (Route::is('dashboard.employees.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.employees.index') }}">
                         <i class="ph-clipboard-text"></i>
                         <span>Pracownicy</span>
                     </a>
-                    <a href="#">
+                    <a 
+                    @if(Route::is('dashboard.roles.*') || (Route::is('dashboard.groups.*'))) 
+                    class="route_active"
+                    @endif
+                    href="{{ route('dashboard.roles.index') }}">
                         <i class="ph-clipboard-text"></i>
                         <span>Role i uprawnienia</span>
                     </a>

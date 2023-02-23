@@ -88,6 +88,10 @@ a {
           align-items: flex-end;
 }
 
+.route_active {
+  color: #fff;
+}
+
 @media (max-width: 1200px) {
   .app-header {
     display: -webkit-box;

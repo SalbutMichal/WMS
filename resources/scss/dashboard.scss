@@ -74,6 +74,9 @@ a {
        column-gap: 4rem;
   align-items: flex-end;
 }
+.route_active{
+  color: #fff;
+}
 @media (max-width: 1200px) {
   .app-header {
     display: flex;
