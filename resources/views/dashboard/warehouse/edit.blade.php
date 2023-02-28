@@ -18,40 +18,40 @@
     </section>
 			<section class="warehouse-section">
 				<div class="warehouse-section-header">
-					<h2>Dodawanie nowego magazynu</h2>
+					<h2>Edycja magazynu</h2>
 				</div>
 				<div class="warehouse">
-                    <form action="{{ route('dashboard.warehouse.store') }}" method="post" class="warehouse-form">
+                    <form action="{{ route('dashboard.warehouse.update', [$warehouse->id]) }}" method="post" class="warehouse-form">
                         @csrf
                         <div class="warehouse">
                             <dl class="warehouse-details">
                                 <div>
                                     <dt><label for="name">Nazwa magazynu:</label></dt>
-                                    <dd><input type="text" id="name" name="name" value=""></dd>
+                                    <dd><input type="text" id="name" name="name" value="{{ $warehouse->name }}"></dd>
                                 </div>
                                 <div>
                                     <dt><label for="city">Miasto:</label></dt>
-                                    <dd><input type="text" id="city" name="city" value=""></dd>
+                                    <dd><input type="text" id="city" name="city" value="{{ $warehouse->city }}"></dd>
                                 </div>
                                 <div>
                                     <dt><label for="street">Ulica:</label></dt>
-                                    <dd><input type="text" id="street" name="street" value=""></dd>
+                                    <dd><input type="text" id="street" name="street" value="{{ $warehouse->street }}"></dd>
                                 </div>
                                 <div>
                                     <dt><label for="zip_code">Kod pocztowy:</label></dt>
-                                    <dd><input type="text" id="zip_code" name="zip_code" value=""></dd>
+                                    <dd><input type="text" id="zip_code" name="zip_code" value="{{ $warehouse->zip_code }}"></dd>
                                 </div>
                                 <div>
                                     <dt><label for="type">Typ magazynu:</label></dt>
                                     <dd><select name="type" id="type">
-                                        <option value="Główny">Główny</option>
-                                        <option selected value="Wysyłkowy">Wysyłkowy</option>
+                                        <option {{ ($warehouse->type == 'Główny' ? 'selected' : '')}} value="Główny">Główny</option>
+                                        <option {{ ($warehouse->type == 'Wysyłkowy' ? 'selected' : '')}} value="Wysyłkowy">Wysyłkowy</option>
                                     </select>
                                     </dd>
                                 </div>
                                 <div>
                                     <dt></dt>
-                                    <dd><button type="submit">Dodaj</button>
+                                    <dd><button type="submit">Edytuj</button>
                                     </dd>
                                 </div>
                             </dl>

@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class ProductCategory extends Model
 {
     protected $fillable = [
         'product_id',
-        'warehouse_id',
-        'quantity',
+        'name',
+        'slug',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

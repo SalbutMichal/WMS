@@ -697,14 +697,17 @@ a {
     display: inline-flex;
   }
 }
-.transfer-section {
+.warehouse-section {
   margin-top: 2.5rem;
 }
 
-.transfer-section-header {
+.warehouse-section-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -713,7 +716,11 @@ a {
   border-bottom: 1px solid var(--c-gray-600);
 }
 
-.transfer-section-header h2 {
+.warehouse-form {
+  width: 100%;
+}
+
+.warehouse-section-header h2 {
   font-size: 1.5rem;
 }
 
@@ -851,7 +858,7 @@ a {
     display: none;
   }
 }
-.transfers {
+.warehouses {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -862,7 +869,7 @@ a {
   margin-top: 1.5rem;
 }
 
-.transfer {
+.warehouse {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -874,7 +881,7 @@ a {
 }
 
 @media (max-width: 1000px) {
-  .transfer {
+  .warehouse {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -884,11 +891,11 @@ a {
             flex-direction: column;
   }
 }
-.transfer + * {
+.warehouse + * {
   margin-top: 2rem;
 }
 
-.transfer-logo {
+.warehouse-logo {
   background-color: var(--c-gray-200);
   border-radius: 4px;
   width: 42px;
@@ -904,12 +911,12 @@ a {
           justify-content: center;
 }
 
-.transfer-logo img {
+.warehouse-logo img {
   width: 45%;
 }
 
-.transfer-details {
-  margin-left: 2rem;
+.warehouse-details {
+  margin-top: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -925,38 +932,40 @@ a {
 }
 
 @media (max-width: 1000px) {
-  .transfer-details {
+  .warehouse-details {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-left: 0;
     margin-top: 1rem;
   }
 }
-.transfer-details div {
+.warehouse-details div {
   width: calc(33.3333333333% - 1rem);
+  text-align: center;
 }
 
 @media (max-width: 1000px) {
-  .transfer-details div {
+  .warehouse-details div {
     width: 100%;
   }
 }
-.transfer-details div + div {
+.warehouse-details div + div {
   margin-left: 1rem;
+  text-align: center;
 }
 
 @media (max-width: 1000px) {
-  .transfer-details div + div {
+  .warehouse-details div + div {
     margin-left: 0;
     margin-top: 1rem;
   }
 }
-.transfer-details dd {
+.warehouse-details dd {
   color: var(--c-text-tertiary);
   margin-top: 2px;
 }
 
-.transfer-number {
+.warehouse-number {
   margin-left: 2rem;
   font-size: 1.125rem;
   -ms-flex-negative: 0;
@@ -971,7 +980,7 @@ a {
 }
 
 @media (max-width: 1000px) {
-  .transfer-number {
+  .warehouse-number {
     margin-left: 0;
     margin-top: 1.25rem;
     width: 100%;

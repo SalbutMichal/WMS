@@ -3,10 +3,10 @@
 <div class="app-header-navigation">
     <div class="tabs">
         <a href="#" class="active">
-            Lista pracowników
+            Lista kategorii
         </a>
-        <a href="{{ route('dashboard.employees.create') }}">
-            Dodaj nowego pracownika
+        <a href="{{ route('dashboard.categories.create') }}">
+            Dodaj nową
         </a>
     </div>
 </div>
@@ -14,35 +14,39 @@
 @section('content')
 <div class="app-body-main-content">
     <section class="service-section">
-        <h2>Pracownicy</h2>
+        <h2>Kategorie</h2>
     </section>
     <section class="warehouse-section">
         <div class="warehouse-section-header">
-            <h2>Lista pracowników</h2>
+            <h2>Lista kategorii</h2>
         </div>
         <div class="warehouses">
-            {{-- @foreach ($employees as $key => $employee )
+            @foreach ($categories as $key => $category )
                 <div class="warehouse">
                     <dl class="warehouse-details">
                         <div>
                             <dt>Nazwa:</dt>
-                            <dd>{{ $product->name }}</dd>
+                            <dd>{{ $category->name }}</dd>
                         </div>
                         <div>
                             <dt>Cena:</dt>
-                            <dd>{{ $product->price }}</dd>
+                            <dd>{{ $category->price }}</dd>
                         </div>
                         <div>
                             <dt>Podatek:</dt>
-                            <dd>{{ $product->tax.'%' }}</dd>
+                            <dd>{{ $category->tax.'%' }}</dd>
                         </div>
                         <div>
                             <dt>Kod ean:</dt>
-                            <dd>{{ $product->ean }}</dd>
+                            <dd>{{ $category->ean }}</dd>
+                        </div>
+                        <div>
+                            <dt></dt>
+                            <dd><a href="{{ route('dashboard.categories.edit', [$category->id]) }}"><button>Edytuj</button></a></dd>
                         </div>
                     </dl>
                 </div>
-            @endforeach --}}
+            @endforeach
         </div>
     </section>
 </div>

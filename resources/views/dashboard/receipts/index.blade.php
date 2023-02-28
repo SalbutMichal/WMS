@@ -3,16 +3,10 @@
 <div class="app-header-navigation">
     <div class="tabs">
         <a href="#" class="active">
-            Lista magazynów
+            Lista przyjęć
         </a>
-        <a href="#" >
-            Przyjęcia
-        </a>
-        <a href="#">
-            Wydania
-        </a>
-        <a href="#">
-            Utwórz nowy
+        <a href="{{ route('dashboard.receipts.create') }}">
+            Dodaj nowe
         </a>
     </div>
 </div>

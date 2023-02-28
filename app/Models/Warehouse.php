@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class Warehouse extends Model
 {
     protected $fillable = [
-        'product_id',
-        'warehouse_id',
-        'quantity',
+        'name',
+        'city',
+        'street',
+        'zip_code',
+        'type',
     ];
 }

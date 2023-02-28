@@ -10,4 +10,7 @@ class EmployeesController extends Controller
     public function index(){
         return view('dashboard.employees.index');
     }
+    public function create(){
+        return view('dashboard.employees.create');
+    }
 }

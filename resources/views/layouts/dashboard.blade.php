@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>WMS - Dashboard</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+  {{-- <script src="https://kit.fontawesome.com/25fc1961d2.js" crossorigin="anonymous"></script> --}}
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -54,7 +54,7 @@
                         <span>Dashboard</span>
                     </a>
                     <a class="{{ (Route::is('dashboard.warehouse.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.warehouse.index') }}">
-                        <i class="ph-check-square"></i>
+                        <i class="ph-house"></i>
                         <span>Magazyny</span>
                     </a>
                     {{-- <a href="#">
@@ -65,12 +65,24 @@
                         <i class="ph-file-text"></i>
                         <span>Wydania magazynowe</span>
                     </a> --}}
+                    <a class="{{ (Route::is('dashboard.releases.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.releases.index') }}">
+                        <i class="ph-truck"></i>
+                        <span>Wydania</span>
+                    </a>
+                    <a class="{{ (Route::is('dashboard.receipts.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.receipts.index') }}">
+                        <i class="ph-truck"></i>
+                        <span>Przyjęcia</span>
+                    </a>
                     <a class="{{ (Route::is('dashboard.products.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.products.index') }}">
-                        <i class="ph-globe"></i>
+                        <i class="ph-barcode"></i>
                         <span>Produkty</span>
                     </a>
+                    <a class="{{ (Route::is('dashboard.categories.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.categories.index') }}">
+                        <i class="ph-folders"></i>
+                        <span>Kategorie</span>
+                    </a>
                     <a class="{{ (Route::is('dashboard.employees.*')) ? 'route_active' : '' }}" href="{{ route('dashboard.employees.index') }}">
-                        <i class="ph-clipboard-text"></i>
+                        <i class="ph-user-list"></i>
                         <span>Pracownicy</span>
                     </a>
                     <a 
@@ -78,8 +90,8 @@
                     class="route_active"
                     @endif
                     href="{{ route('dashboard.roles.index') }}">
-                        <i class="ph-clipboard-text"></i>
-                        <span>Role i uprawnienia</span>
+                        <i class="ph-person"></i>
+                        <span>Uprawnienia</span>
                     </a>
                 </nav>
                 {{-- <footer class="footer">
@@ -92,8 +104,6 @@
         </div>
 @yield('content')
 </div>
-<!-- partial -->
   <script src='https://unpkg.com/phosphor-icons'></script>
-
 </body>
 </html>

@@ -3,10 +3,10 @@
 <div class="app-header-navigation">
     <div class="tabs">
         <a href="#" class="active">
-            Lista produktów
+            Lista wydań
         </a>
-        <a href="#">
-            Dodaj nowy
+        <a href="{{ route('dashboard.releases.create') }}">
+            Dodaj nowe
         </a>
     </div>
 </div>

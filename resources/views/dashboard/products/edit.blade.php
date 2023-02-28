@@ -2,56 +2,57 @@
 @section('nav')
 <div class="app-header-navigation">
     <div class="tabs">
-        <a href="{{ route('dashboard.warehouse.index') }}">
-            Lista magazynów
+        <a href="{{ route('dashboard.products.index') }}">
+            Lista produktów
         </a>
-        <a class="{{ (Route::is('dashboard.warehouse.create') ? 'active' : '') }}" href="{{ route('dashboard.warehouse.create') }}">
-            Utwórz nowy
+        <a class="{{ (Route::is('dashboard.products.create')) ? 'active' : '' }}" href="{{ route('dashboard.products.create') }}">
+            Dodaj nowy
         </a>
     </div>
 </div>
 @endsection
 @section('content')
 <div class="app-body-main-content">
-		<section class="service-section">
-        <h2>Magazyny</h2>
+    <section class="service-section">
+        <h2>Produkty</h2>
     </section>
-			<section class="warehouse-section">
+    <section class="warehouse-section">
 				<div class="warehouse-section-header">
 					<h2>Dodawanie nowego magazynu</h2>
 				</div>
 				<div class="warehouse">
-                    <form action="{{ route('dashboard.warehouse.store') }}" method="post" class="warehouse-form">
+                    <form action="{{ route('dashboard.products.update', [$product->id]) }}" method="post" class="warehouse-form">
                         @csrf
                         <div class="warehouse">
                             <dl class="warehouse-details">
                                 <div>
-                                    <dt><label for="name">Nazwa magazynu:</label></dt>
-                                    <dd><input type="text" id="name" name="name" value=""></dd>
+                                    <dt><label for="name">Nazwa produktu:</label></dt>
+                                    <dd><input type="text" id="name" name="name" value="{{ $product->name }}"></dd>
                                 </div>
                                 <div>
-                                    <dt><label for="city">Miasto:</label></dt>
-                                    <dd><input type="text" id="city" name="city" value=""></dd>
+                                    <dt><label for="price">Cena:</label></dt>
+                                    <dd><input type="text" id="price" name="price" value="{{ $product->price }}"></dd>
                                 </div>
                                 <div>
-                                    <dt><label for="street">Ulica:</label></dt>
-                                    <dd><input type="text" id="street" name="street" value=""></dd>
+                                    <dt><label for="tax">Podatek:</label></dt>
+                                    <dd><input type="text" id="tax" name="tax" value="{{ $product->tax }}"></dd>
                                 </div>
                                 <div>
-                                    <dt><label for="zip_code">Kod pocztowy:</label></dt>
-                                    <dd><input type="text" id="zip_code" name="zip_code" value=""></dd>
+                                    <dt><label for="ean">Kod ean:</label></dt>
+                                    <dd><input type="text" id="ean" name="ean" value="{{ $product->ean }}"></dd>
                                 </div>
                                 <div>
-                                    <dt><label for="type">Typ magazynu:</label></dt>
-                                    <dd><select name="type" id="type">
-                                        <option value="Główny">Główny</option>
-                                        <option selected value="Wysyłkowy">Wysyłkowy</option>
+                                    <dt><label for="category">Kategoria:</label></dt>
+                                    <dd><select name="category_id" id="category">
+                                        @foreach ($categories as $category)
+                                            <option {{ ($category->id == $product->category_id) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                     </dd>
                                 </div>
                                 <div>
                                     <dt></dt>
-                                    <dd><button type="submit">Dodaj</button>
+                                    <dd><button type="submit">Edytuj</button>
                                     </dd>
                                 </div>
                             </dl>
@@ -77,6 +78,5 @@
                     @endforeach --}}
 				</div>
 			</section>
-		</div>
-	</div>
+</div>
 @endsection
